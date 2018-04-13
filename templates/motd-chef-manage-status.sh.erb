@@ -1,12 +1,18 @@
 #!/bin/sh
 
-echo '************************************************************'
-echo '* CHEF managed system:'
-echo '* NO CHANGES to this system except through Chef.'
-
 MOTD_GREEN='\033[0;32m'
 MOTD_RED='\033[0;31m'
 MOTD_NO_COLOR='\033[0m'
+
+if [ -f <%= success_file %> ]; then
+  if [[`cat <%= @timestamp_file %>` =~ 'true']]; then
+    LAST_SUCCESS="$MOTD_GREEN successful$MOTD_NO_COLOR"
+  else
+    LAST_SUCCESS="$MOTD_RED failed$MOTD_NO_COLOR"
+  fi
+else
+  LAST_SUCCESS=''
+fi
 
 if [ -f <%= @timestamp_file %> ]; then
   LAST_RUN=$(expr $(expr $(date +%s) - `cat <%= @timestamp_file %>`) / 60)
@@ -20,5 +26,8 @@ else
   MOTD_COLOR=$MOTD_RED
 fi
 
-echo "* Node: `cat <%= @node_name_file %>`, last chef run: $MOTD_COLOR$LAST_RUN minute(s)$MOTD_NO_COLOR ago."
+echo '************************************************************'
+echo '* CHEF managed system:'
+echo '* NO CHANGES to this system except through Chef.'
+echo "* Node: `cat <%= @node_name_file %>`, last$LAST_SUCCESS Chef run: $MOTD_COLOR$LAST_RUN minute(s)$MOTD_NO_COLOR ago."
 echo '************************************************************'
