@@ -4,6 +4,10 @@ echo '************************************************************'
 echo '* CHEF managed system:'
 echo '* NO CHANGES to this system except through Chef.'
 
+MOTD_GREEN='\033[0;32m'
+MOTD_RED='\033[0;31m'
+MOTD_NO_COLOR='\033[0m'
+
 if [ -f <%= @timestamp_file %> ]; then
   LAST_RUN=$(expr $(expr $(date +%s) - `cat <%= @timestamp_file %>`) / 60)
 else
@@ -11,11 +15,10 @@ else
 fi
 
 if [ $LAST_RUN -le <%= @maxium_delay %> ]; then
-  MOTD_COLOR='\033[0;32m' # Green
+  MOTD_COLOR=$MOTD_GREEN
 else
-  MOTD_COLOR='\033[0;31m' # Red
+  MOTD_COLOR=$MOTD_RED
 fi
-MOTD_NO_COLOR='\033[0m'
 
 echo "* Node: `cat <%= @node_name_file %>`, last chef run: $MOTD_COLOR$LAST_RUN minute(s)$MOTD_NO_COLOR ago."
 echo '************************************************************'
