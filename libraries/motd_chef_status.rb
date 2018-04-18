@@ -5,6 +5,12 @@ module MOTDChefStatus
   module Helper
     TCB = 'motd_chef_status'
 
+    def fragment_directory
+      return '/etc/update-motd.d/' if node['platform_family'] == 'debian'
+      return '/etc/profile.d/' if node['platform_family'] == 'redhat'
+      raise "Platform family not supported: #{node['platform_family']}"
+    end
+
     def chef_client_interval_s
       return Integer(Chef::Config[:interval]) if Chef::Config[:interval]
       return Integer(node['chef_client']['interval']) if node.attribute?('chef_client')
