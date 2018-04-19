@@ -12,6 +12,6 @@ describe file(fragment_dir + '00-header') do
   it { should exist }
 end
 
-describe file(fragment_dir + '95-chef-manage-status') do
+describe file(fragment_dir + '99-chef-manage-status') do
   it { should exist }
 end
