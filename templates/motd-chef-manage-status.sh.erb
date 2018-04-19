@@ -29,6 +29,6 @@ fi
 echo '************************************************************'
 echo '* CHEF managed system:'
 echo '* NO CHANGES to this system except through Chef.'
-echo "* Node: `cat '<%= @node_name_file %>'`, last$LAST_SUCCESS Chef run was $MOTD_COLOR$LAST_RUN minute(s)$MOTD_NO_COLOR ago."
+printf "* Node: `cat '<%= @node_name_file %>'`, last$LAST_SUCCESS Chef run was $MOTD_COLOR$LAST_RUN minute(s)$MOTD_NO_COLOR ago.\n"
 echo '************************************************************'
 echo ''
