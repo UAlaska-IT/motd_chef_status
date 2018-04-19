@@ -10,6 +10,11 @@ var_map = {
   timestamp_file: path_to_last_run_time
 }
 
+# Still exists on Debian, will print on Ubuntu if exist
+file '/etc/motd' do
+  action :delete
+end
+
 # Ubuntu desktop help
 motd_fragment '10-help-text' do
   action :delete
@@ -19,6 +24,13 @@ end
 
 # Ubuntu cloud help
 motd_fragment '51-cloudguest' do
+  action :delete
+  template_cookbook ''
+  template_source ''
+end
+
+# Debian host info
+motd_fragment '10-uname' do
   action :delete
   template_cookbook ''
   template_source ''
