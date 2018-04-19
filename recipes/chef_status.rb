@@ -36,13 +36,13 @@ motd_fragment '10-uname' do
   template_source ''
 end
 
-motd_fragment "#{node[tcb]['header_position']}-header" do
+motd_fragment "#{node[tcb]['header_position']}-header#{fragment_extension}" do
   template_cookbook tcb
   template_source 'motd-header.sh.erb'
   template_variables var_map
 end
 
-motd_fragment "#{node[tcb]['chef_status_position']}-chef-manage-status" do
+motd_fragment "#{node[tcb]['chef_status_position']}-chef-manage-status#{fragment_extension}" do
   template_cookbook tcb
   template_source 'motd-chef-manage-status.sh.erb'
   template_variables var_map

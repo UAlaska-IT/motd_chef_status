@@ -11,6 +11,12 @@ module MOTDChefStatus
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
+    def fragment_extension
+      return '' if node['platform_family'] == 'debian'
+      return '.sh' if ['rhel', 'fedora'].include? node['platform_family']
+      raise "Platform family not supported: #{node['platform_family']}"
+    end
+
     def chef_client_interval_s
       return Integer(Chef::Config[:interval]) if Chef::Config[:interval]
       return Integer(node['chef_client']['interval']) if node.attribute?('chef_client')
