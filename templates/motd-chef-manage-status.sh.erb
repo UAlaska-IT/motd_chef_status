@@ -4,7 +4,7 @@ MOTD_GREEN='\033[0;32m'
 MOTD_RED='\033[0;31m'
 MOTD_NO_COLOR='\033[0m'
 
-if [ -f <%= success_file %> ]; then
+if [ -f <%= @success_file %> ]; then
   if [[`cat <%= @timestamp_file %>` =~ 'true']]; then
     LAST_SUCCESS="$MOTD_GREEN successful$MOTD_NO_COLOR"
   else
