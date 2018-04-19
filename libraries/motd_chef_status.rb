@@ -7,7 +7,7 @@ module MOTDChefStatus
 
     def fragment_directory
       return '/etc/update-motd.d/' if node['platform_family'] == 'debian'
-      return '/etc/profile.d/' if node['platform_family'] == 'redhat'
+      return '/etc/profile.d/' if ['rhel', 'fedora'].include? node['platform_family']
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
