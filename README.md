@@ -22,6 +22,7 @@ This cookbook requires Chef 13+
 Supported Platform Families:
 
 * Linux
+* BSD
 
 Platforms validated via Test Kitchen:
 
@@ -29,6 +30,7 @@ Platforms validated via Test Kitchen:
 * Debian
 * CentOS
 * Fedora
+* FreeBSD
 
 Notes:
 

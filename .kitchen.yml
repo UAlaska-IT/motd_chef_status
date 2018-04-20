@@ -11,12 +11,17 @@ verifier:
   name: inspec
 
 platforms:
+  - name: ubuntu-18.04
   - name: ubuntu-16.04
   - name: ubuntu-14.04
   - name: debian-9.4
+  - name: debian-8.10
+  - name: debian-7.11
   - name: centos-7.4
   - name: centos-6.9
   - name: fedora-27
+  - name: freebsd-11.1
+  - name: freebsd-10.4
 
 suites:
   - name: default
