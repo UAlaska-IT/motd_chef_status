@@ -28,13 +28,13 @@ platforms:
   - name: debian-7.11
   - name: debian-7.11-i386
   - name: centos-7.5
-  - name: centos-6.9
-  - name: centos-6.9-i386
+  - name: centos-6.10
+  - name: centos-6.10-i386
   - name: centos-5.11
   - name: centos-5.11-i386
   - name: oracle-7.5
-  - name: oracle-6.9
-  - name: oracle-6.9-i386
+  - name: oracle-6.10
+  - name: oracle-6.10-i386
   - name: oracle-5.11
   - name: oracle-5.11-i386
   - name: fedora-28
