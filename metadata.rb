@@ -24,4 +24,4 @@ supports 'freebsd', '>= 10.0'
 
 chef_version '>= 13.0' if respond_to?(:chef_version)
 
-depends 'chef_run_recorder', '>= 0.1.0'
+depends 'chef_run_recorder'
