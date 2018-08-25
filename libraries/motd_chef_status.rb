@@ -43,5 +43,6 @@ module MOTDChefStatus
   end
 end
 
-Chef::Recipe.include(MOTDChefStatus::Helper)
-Chef::Resource.include(MOTDChefStatus::Helper)
+Chef::Provider.include(ChefRunRecorder::Helper)
+Chef::Recipe.include(ChefRunRecorder::Helper)
+Chef::Resource.include(ChefRunRecorder::Helper)
