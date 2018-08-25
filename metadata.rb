@@ -11,10 +11,17 @@ source_url 'https://github.com/ualaska-it/motd_chef_status' if respond_to?(:sour
 
 version '0.1.0'
 
-['amazon', 'centos', 'debian', 'fedora', 'oracle', 'redhat', 'scientific', 'ubuntu'].each do |os|
-  supports os
-end
+supports 'ubuntu', '>= 14.0'
+supports 'debian', '>= 8.0'
+supports 'redhat', '>= 6.0'
+supports 'centos', '>= 6.0'
+supports 'oracle', '>= 6.0'
+supports 'fedora'
+supports 'amazon', '< 2.0'
+supports 'suse'
+supports 'opensuse'
+supports 'freebsd', '>= 10.0'
 
-chef_version '>= 13.0.0' if respond_to?(:chef_version)
+chef_version '>= 13.0' if respond_to?(:chef_version)
 
 depends 'chef_run_recorder', '>= 0.1.0'
