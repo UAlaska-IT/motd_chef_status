@@ -4,7 +4,7 @@ __Maintainer: OIT Systems Engineering__ (<ua-oit-se@alaska.edu>)
 
 ## Purpose
 
-This cookbook configures Message of the Day to display system information and Chef status
+This cookbook configures Message of the Day to display system information and Chef status.
 
 * Standard OS, machine, and hostname information
 * Chef node name, run success status, last run timing

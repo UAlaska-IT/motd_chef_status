@@ -1,4 +1,4 @@
-# Changelog for MOTD CHef Status Cookbook
+# Changelog for MOTD Chef Status Cookbook
 
 ## 0.1.0
 
