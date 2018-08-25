@@ -59,10 +59,61 @@ platforms:
       name: winrm
 
 suites:
-  - name: default
+  - name: debian-based
     run_list:
       - recipe[motd_chef_status::default]
     verifier:
       inspec_tests:
         - test/smoke/default
     attributes:
+    includes:
+      - ubuntu-18.04
+      - ubuntu-16.04
+      - ubuntu-16.04-i386
+      - ubuntu-14.04
+      - ubuntu-14.04-i386
+      #- ubuntu-12.04 # Chef 13 dropped support
+      #- ubuntu-12.04-i386 # Chef 13 dropped support
+      - debian-9.5
+      - debian-9.5-i386
+      - debian-8.11
+      - debian-8.10-i386
+      #- debian-7.11 # Ruby requires GLIBC
+      #- debian-7.11-i386 # Ruby requires GLIBC
+  - name: rhel-based
+    run_list:
+      - recipe[motd_chef_status::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
+    includes:
+      - centos-7.5
+      - centos-6.10
+      - centos-6.10-i386
+      #- centos-5.11 # Chef 14 dropped support
+      #- centos-5.11-i386 # Chef 14 dropped support
+      - oracle-7.5
+      - oracle-6.10
+      - oracle-6.10-i386
+      #- oracle-5.11 # Chef 14 dropped support
+      #- oracle-5.11-i386 # Chef 14 dropped support
+      - fedora-28
+      - fedora-27
+      - fedora-26
+  - name: all-others
+    run_list:
+      - recipe[motd_chef_status::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
+    includes:
+      #- gbailey/amzn2 # Omnibus detection for Amazon 2 is currently broken
+      #- stakahashi/amazonlinux2 # Omnibus detection for Amazon 2 is currently broken
+      - realreadme/amazon2016.09
+      - opensuse-leap-42.3
+      - freebsd-11.2
+      #- freebsd-11.2-i386 # Chef package not found
+      - freebsd-10.4
+      #- freebsd-10.4-i386 # Box does not exist
