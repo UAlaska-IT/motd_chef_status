@@ -44,14 +44,18 @@ var_map = {
   timestamp_file: path_to_last_run_time
 }
 
-motd_fragment "#{node[tcb]['header_position']}-header#{fragment_extension}" do
-  template_cookbook tcb
-  template_source 'motd-header.sh.erb'
-  template_variables var_map
+if node[tcb]['add_header_fragment']
+  motd_fragment "#{node[tcb]['header_position']}-header#{fragment_extension}" do
+    template_cookbook tcb
+    template_source 'motd-header.sh.erb'
+    template_variables var_map
+  end
 end
 
-motd_fragment "#{node[tcb]['chef_status_position']}-chef-manage-status#{fragment_extension}" do
-  template_cookbook tcb
-  template_source 'motd-chef-manage-status.sh.erb'
-  template_variables var_map
+if node[tcb]['add_chef_fragment']
+  motd_fragment "#{node[tcb]['chef_status_position']}-chef-manage-status#{fragment_extension}" do
+    template_cookbook tcb
+    template_source 'motd-chef-manage-status.sh.erb'
+    template_variables var_map
+  end
 end
