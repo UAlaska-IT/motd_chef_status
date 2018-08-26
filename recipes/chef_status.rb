@@ -28,7 +28,7 @@ if node[tcb]['remove_existing_fragments']
     [
       '10-help-text', # Ubuntu desktop help
       '50-motd-news', # Ubuntu dynamic news
-      '51-cloudguest' # Ubuntu cloud hel
+      '51-cloudguest' # Ubuntu cloud help
     ].each do |fragment|
       motd_fragment fragment do
         action :delete
@@ -48,6 +48,18 @@ if node[tcb]['remove_existing_fragments']
   end
 
   if node[tcb]['remove_update_fragments']
+    [
+      '80-esm', # Ubuntu extended support status
+      '80-livepatch', # Ubuntu livepatch install status
+      '91-release-upgrade', # Ubuntu release upgrade check
+      '95-hwe-eol' # Ubuntu end of life check?
+    ].each do |fragment|
+      motd_fragment fragment do
+        action :delete
+        template_cookbook ''
+        template_source ''
+      end
+    end
   end
 end
 
