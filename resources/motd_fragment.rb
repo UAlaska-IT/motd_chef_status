@@ -10,6 +10,11 @@ property :template_variables, Hash, default: {}
 default_action :create
 
 action :create do
+  directory fragment_directory do
+    owner 'root'
+    group 'root'
+    mode '0755'
+  end
   template fragment_directory + new_resource.fragment_name do
     cookbook new_resource.template_cookbook
     source new_resource.template_source
