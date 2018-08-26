@@ -27,8 +27,8 @@ if node[tcb]['remove_existing_fragments']
   if node[tcb]['remove_document_fragments']
     [
       '10-help-text', # Ubuntu desktop help
-      '51-cloudguest', # Ubuntu cloud help
-      '50-motd-news' # Ubuntu dynamic news
+      '50-motd-news', # Ubuntu dynamic news
+      '51-cloudguest' # Ubuntu cloud hel
     ].each do |fragment|
       motd_fragment fragment do
         action :delete
