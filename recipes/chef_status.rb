@@ -9,7 +9,7 @@ if node[tcb]['remove_existing_fragments']
   end
 
   unless node[tcb]['add_header_fragment'] && node[tcb]['header_position'] == '00'
-    # Ubuntu header; we will add our own fragment, so don't blow our own away!
+    # Ubuntu 18, 16 header; we will add our own fragment, so don't blow our own away!
     motd_fragment '00-header' do
       action :delete
       template_cookbook ''
@@ -26,8 +26,8 @@ if node[tcb]['remove_existing_fragments']
 
   if node[tcb]['remove_document_fragments']
     [
-      '10-help-text', # Ubuntu desktop help
-      '50-motd-news', # Ubuntu dynamic news
+      '10-help-text', # Ubuntu 18, 16 desktop help
+      '50-motd-news', # Ubuntu 18 dynamic news
       '51-cloudguest' # Ubuntu cloud help
     ].each do |fragment|
       motd_fragment fragment do
@@ -40,9 +40,9 @@ if node[tcb]['remove_existing_fragments']
 
   if node[tcb]['remove_status_fragments']
     [
-      '50-landscape-sysinfo', # Ubuntu landscape info
-      '97-overlayroot', # Ubuntu ???
-      '98-fsck-at-reboot' # Ubuntu disk check
+      '50-landscape-sysinfo', # Ubuntu 18 landscape info
+      '97-overlayroot', # Ubuntu 18, 16 ???
+      '98-fsck-at-reboot' # Ubuntu 18, 16 disk check
     ].each do |fragment|
       motd_fragment fragment do
         action :delete
@@ -54,11 +54,12 @@ if node[tcb]['remove_existing_fragments']
 
   if node[tcb]['remove_update_fragments']
     [
-      '80-esm', # Ubuntu extended support status
-      '80-livepatch', # Ubuntu livepatch install status
-      '91-release-upgrade', # Ubuntu release upgrade check
-      '95-hwe-eol', # Ubuntu end of life check?
-      '98-reboot-required' # Ubuntu reboot check
+      '80-esm', # Ubuntu 18 extended support status
+      '80-livepatch', # Ubuntu 18 livepatch install status
+      '90-updates-available', # Ubuntu 16 update check
+      '91-release-upgrade', # Ubuntu 18, 16 release upgrade check
+      '95-hwe-eol', # Ubuntu 18 end of life check?
+      '98-reboot-required' # Ubuntu 18, 16 reboot check
     ].each do |fragment|
       motd_fragment fragment do
         action :delete
