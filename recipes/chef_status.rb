@@ -38,6 +38,13 @@ if node[tcb]['remove_existing_fragments']
       template_cookbook ''
       template_source ''
     end
+
+    # Ubuntu dynamic news
+    motd_fragment '50-motd-news' do
+      action :delete
+      template_cookbook ''
+      template_source ''
+    end
   end
 
   if node[tcb]['remove_status_fragments']
