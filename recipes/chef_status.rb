@@ -9,7 +9,7 @@ if node[tcb]['remove_existing_fragments']
   end
 
   unless node[tcb]['add_header_fragment'] && node[tcb]['header_position'] == '00'
-    # Ubuntu 18, 16 header; we will add our own fragment, so don't blow our own away!
+    # Ubuntu 18, 16, 14 header; we will add our own fragment, so don't blow our own away!
     motd_fragment '00-header' do
       action :delete
       template_cookbook ''
@@ -26,7 +26,7 @@ if node[tcb]['remove_existing_fragments']
 
   if node[tcb]['remove_document_fragments']
     [
-      '10-help-text', # Ubuntu 18, 16 desktop help
+      '10-help-text', # Ubuntu 18, 16, 14 desktop help
       '50-motd-news', # Ubuntu 18 dynamic news
       '51-cloudguest' # Ubuntu cloud help
     ].each do |fragment|
@@ -40,9 +40,9 @@ if node[tcb]['remove_existing_fragments']
 
   if node[tcb]['remove_status_fragments']
     [
-      '50-landscape-sysinfo', # Ubuntu 18 landscape info
+      '50-landscape-sysinfo', # Ubuntu 18, 14 landscape info
       '97-overlayroot', # Ubuntu 18, 16 ???
-      '98-fsck-at-reboot' # Ubuntu 18, 16 disk check
+      '98-fsck-at-reboot' # Ubuntu 18, 16, 14 disk check
     ].each do |fragment|
       motd_fragment fragment do
         action :delete
@@ -56,10 +56,10 @@ if node[tcb]['remove_existing_fragments']
     [
       '80-esm', # Ubuntu 18 extended support status
       '80-livepatch', # Ubuntu 18 livepatch install status
-      '90-updates-available', # Ubuntu 16 update check
-      '91-release-upgrade', # Ubuntu 18, 16 release upgrade check
-      '95-hwe-eol', # Ubuntu 18 end of life check?
-      '98-reboot-required' # Ubuntu 18, 16 reboot check
+      '90-updates-available', # Ubuntu 16, 14 update check
+      '91-release-upgrade', # Ubuntu 18, 16, 14 release upgrade check
+      '95-hwe-eol', # Ubuntu 18, 14 end of life check?
+      '98-reboot-required' # Ubuntu 18, 16, 14 reboot check
     ].each do |fragment|
       motd_fragment fragment do
         action :delete
