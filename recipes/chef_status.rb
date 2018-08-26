@@ -8,6 +8,15 @@ if node[tcb]['remove_existing_fragments']
     action :delete
   end
 
+  unless node[tcb]['add_header_fragment'] && node[tcb]['header_position'] == '00'
+    # We will add our own fragment, so don't blow our own away!
+    motd_fragment '00-header' do
+      action :delete
+      template_cookbook ''
+      template_source ''
+    end
+  end
+
   # Debian host info
   motd_fragment '10-uname' do
     action :delete
@@ -31,8 +40,10 @@ if node[tcb]['remove_existing_fragments']
     end
   end
 
-  if node[tcb]['remove_update_fragments']
+  if node[tcb]['remove_status_fragments']
+  end
 
+  if node[tcb]['remove_update_fragments']
   end
 end
 
