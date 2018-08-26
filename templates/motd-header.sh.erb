@@ -6,6 +6,8 @@ elif [ -f /etc/debian_version ] ; then
   # This will define DISTRIB_DESCRIPTION on Debian/Ubuntu
   . /etc/lsb-release
   MOTD_DISTRO=$DISTRIB_DESCRIPTION
+else
+  MOTD_DISTRO='UNKNOWN DISTRO'
 fi
 
 echo ""
