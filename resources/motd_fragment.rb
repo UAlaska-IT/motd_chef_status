@@ -13,7 +13,7 @@ action :create do
   template fragment_directory + new_resource.fragment_name do
     cookbook new_resource.template_cookbook
     source new_resource.template_source
-    variables template_variables
+    variables new_resource.template_variables
     group node['root_group']
     owner 'root'
     mode '0755'
