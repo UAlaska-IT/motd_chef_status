@@ -25,25 +25,16 @@ if node[tcb]['remove_existing_fragments']
   end
 
   if node[tcb]['remove_document_fragments']
-    # Ubuntu desktop help
-    motd_fragment '10-help-text' do
-      action :delete
-      template_cookbook ''
-      template_source ''
-    end
-
-    # Ubuntu cloud help
-    motd_fragment '51-cloudguest' do
-      action :delete
-      template_cookbook ''
-      template_source ''
-    end
-
-    # Ubuntu dynamic news
-    motd_fragment '50-motd-news' do
-      action :delete
-      template_cookbook ''
-      template_source ''
+    [
+      '10-help-text', # Ubuntu desktop help
+      '51-cloudguest', # Ubuntu cloud help
+      '50-motd-news' # Ubuntu dynamic news
+    ].each do |fragment|
+      motd_fragment fragment do
+        action :delete
+        template_cookbook ''
+        template_source ''
+      end
     end
   end
 
