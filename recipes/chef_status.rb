@@ -39,11 +39,16 @@ if node[tcb]['remove_existing_fragments']
   end
 
   if node[tcb]['remove_status_fragments']
-    # Landscape info
-    motd_fragment '50-landscape-sysinfo' do
-      action :delete
-      template_cookbook ''
-      template_source ''
+    [
+      '50-landscape-sysinfo', # Ubuntu landscape info
+      '97-overlayroot', # Ubuntu ???
+      '98-fsck-at-reboot' # Ubuntu disk check
+    ].each do |fragment|
+      motd_fragment fragment do
+        action :delete
+        template_cookbook ''
+        template_source ''
+      end
     end
   end
 
@@ -52,7 +57,8 @@ if node[tcb]['remove_existing_fragments']
       '80-esm', # Ubuntu extended support status
       '80-livepatch', # Ubuntu livepatch install status
       '91-release-upgrade', # Ubuntu release upgrade check
-      '95-hwe-eol' # Ubuntu end of life check?
+      '95-hwe-eol', # Ubuntu end of life check?
+      '98-reboot-required' # Ubuntu reboot check
     ].each do |fragment|
       motd_fragment fragment do
         action :delete
