@@ -9,7 +9,7 @@ if node[tcb]['remove_existing_fragments']
   end
 
   unless node[tcb]['add_header_fragment'] && node[tcb]['header_position'] == '00'
-    # We will add our own fragment, so don't blow our own away!
+    # Ubuntu header; we will add our own fragment, so don't blow our own away!
     motd_fragment '00-header' do
       action :delete
       template_cookbook ''
@@ -41,6 +41,12 @@ if node[tcb]['remove_existing_fragments']
   end
 
   if node[tcb]['remove_status_fragments']
+    # Landscape info
+    motd_fragment '50-landscape-sysinfo' do
+      action :delete
+      template_cookbook ''
+      template_source ''
+    end
   end
 
   if node[tcb]['remove_update_fragments']
