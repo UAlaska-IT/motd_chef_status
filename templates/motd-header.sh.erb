@@ -1,9 +1,17 @@
 #!/bin/sh
 
 if [ -f /etc/redhat-release ] ; then
+  # CentOS string contains name, detailed version, codename
   MOTD_DISTRO=`cat /etc/redhat-release`
-elif [ -f /etc/debian_version ] ; then
-  # This will define DISTRIB_DESCRIPTION on Debian/Ubuntu
+elif [ -f /etc/os-release ] ; then
+  . /etc/os-release
+  MOTD_DISTRO=$PRETTY_NAME # Debian pretty name contains codename
+  if [ ! -z "$NAME" ] && [ ! -z "$VERSION" ] ; then
+    # Assemble name and version on Ubuntu or CentOS (fallback)
+    MOTD_DISTRO="$NAME $VERSION"
+  fi
+elif [ -f /etc/lsb-release ] ; then
+  # This will define DISTRIB_DESCRIPTION on Ubuntu (fallback)
   . /etc/lsb-release
   MOTD_DISTRO=$DISTRIB_DESCRIPTION
 else
