@@ -12,7 +12,7 @@ source_url 'https://github.com/ualaska-it/motd_chef_status' if respond_to?(:sour
 version '0.1.0'
 
 supports 'ubuntu', '>= 14.0'
-supports 'debian', '>= 9.0' # Debian 8 has issues that could be untangled by someone who still uses it
+supports 'debian', '>= 8.0'
 supports 'redhat', '>= 6.0'
 supports 'centos', '>= 6.0'
 supports 'oracle', '>= 6.0'
