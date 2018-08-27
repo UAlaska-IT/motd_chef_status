@@ -20,7 +20,7 @@ supports 'fedora'
 supports 'amazon', '< 2.0'
 supports 'suse'
 supports 'opensuse'
-#supports 'freebsd', '>= 10.0'
+# supports 'freebsd', '>= 10.0'
 
 chef_version '>= 13.0' if respond_to?(:chef_version)
 

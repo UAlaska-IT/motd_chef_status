@@ -27,6 +27,10 @@ module MOTDChefStatus
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
+    def every_fragment_directory
+      return ['/etc/update-motd.d/', '/etc/profile.d/']
+    end
+
     def fragment_extension
       return '' if working_update_motd?
       return '.sh' if profile_fallback?
