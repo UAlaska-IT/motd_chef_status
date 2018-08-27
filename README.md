@@ -49,7 +49,27 @@ Notes:
 
 ## Resources
 
-This cookbook provides no custom resources.
+This cookbook provides one resources for configuring and installing a MOTD fragment. The fragment will be placed in the appropriate directory and given the appropriate extension for the platform.
+
+### motd_fragment
+
+A motd_fragment manages a single script fragment (file).
+
+__Actions__
+
+Two action are provided.
+
+* `create` - Post condition is that the fragment exists in the appropriate directory to be executed.
+* `delete` - Post condition is that the fragment exists in neither /etc/update-motd.d/ nor /etc/profile.d/.
+
+__Attributes__
+
+This resource has four attributes.
+
+* `fragment_name` - Defaults to `nil`. The stem of the fragment file, if nil the name of the resource is used.
+* `template_cookbook` - Required. The name of the cookbook where the fragment is located.
+* `template_source` - Required. The name of the template to use for the fragment, inside template_cookbook/templates/.
+* `template_variables` - Defaults to `{}`.
 
 ## Recipes
 
@@ -94,4 +114,13 @@ __Attributes__
 
 ## Examples
 
-This is an application cookbook; no custom resources are provided.  See recipes and attributes for details of what this cookbook does.
+The `motd_fragment` resource can be used as below.
+
+```ruby
+motd_fragment 'motd-header' do
+  fragment_name '00-header'
+  template_cookbook 'my_cookbook'
+  template_source 'motd-header.sh.erb'
+  template_variables {}
+end
+```
