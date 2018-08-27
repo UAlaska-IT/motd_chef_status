@@ -5,15 +5,31 @@ module MOTDChefStatus
   module Helper
     TCB = 'motd_chef_status'
 
+    def working_update_motd?
+      return node['platform_family'] == 'debian' && node['platform_version'] !~ /[7-8]/
+    end
+
+    def broken_debian?
+      return node['platform_family'] == 'debian' && node['platform_version'] =~ /[7-8]/
+    end
+
+    def profile_fallback?
+      return (['rhel', 'fedora', 'amazon', 'suse'].include? node['platform_family']) || broken_debian?
+    end
+
+    def platform_supports_dynamic_motd?
+      return working_update_motd? || profile_fallback?
+    end
+
     def fragment_directory
-      return '/etc/update-motd.d/' if node['platform_family'] == 'debian'
-      return '/etc/profile.d/' if ['rhel', 'fedora', 'amazon', 'suse'].include? node['platform_family']
+      return '/etc/update-motd.d/' if working_update_motd?
+      return '/etc/profile.d/' if profile_fallback?
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
     def fragment_extension
-      return '' if node['platform_family'] == 'debian'
-      return '.sh' if ['rhel', 'fedora', 'amazon', 'suse'].include? node['platform_family']
+      return '' if working_update_motd?
+      return '.sh' if profile_fallback?
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
@@ -39,10 +55,6 @@ module MOTDChefStatus
 
     def chef_client_max_delay_minutes
       return (chef_client_interval_s + chef_client_splay_s) / 60
-    end
-
-    def platform_supports_dynamic_motd?
-      return node['platform'] != 'debian' || node['platform_version'] !~ /^[7-8]/
     end
   end
 end
