@@ -7,13 +7,13 @@ module MOTDChefStatus
 
     def fragment_directory
       return '/etc/update-motd.d/' if node['platform_family'] == 'debian'
-      return '/etc/profile.d/' if ['rhel', 'fedora', 'amazon'].include? node['platform_family']
+      return '/etc/profile.d/' if ['rhel', 'fedora', 'amazon', 'suse'].include? node['platform_family']
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
     def fragment_extension
       return '' if node['platform_family'] == 'debian'
-      return '.sh' if ['rhel', 'fedora', 'amazon'].include? node['platform_family']
+      return '.sh' if ['rhel', 'fedora', 'amazon', 'suse'].include? node['platform_family']
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
