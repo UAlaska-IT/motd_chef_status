@@ -6,11 +6,11 @@ module MOTDChefStatus
     TCB = 'motd_chef_status'
 
     def working_update_motd?
-      return node['platform_family'] == 'debian' && node['platform_version'] !~ /[7-8]/
+      return node['platform_family'] == 'debian' && node['platform_version'] !~ /^[7-8]/
     end
 
     def broken_debian?
-      return node['platform_family'] == 'debian' && node['platform_version'] =~ /[7-8]/
+      return node['platform_family'] == 'debian' && node['platform_version'] =~ /^[7-8]/
     end
 
     def profile_fallback?
