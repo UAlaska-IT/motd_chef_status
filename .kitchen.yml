@@ -113,7 +113,7 @@ suites:
       #- stakahashi/amazonlinux2 # Omnibus detection for Amazon 2 is currently broken
       - realreadme/amazon2016.09
       - opensuse-leap-42.3
-      - freebsd-11.2
+      #- freebsd-11.2 # freebsd has not been worth investigating
       #- freebsd-11.2-i386 # Chef package not found
-      - freebsd-10.4
+      #- freebsd-10.4 # freebsd has not been worth investigating
       #- freebsd-10.4-i386 # Box does not exist

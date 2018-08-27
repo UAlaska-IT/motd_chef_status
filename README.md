@@ -21,16 +21,21 @@ This cookbook requires Chef 13+
 
 Supported Platform Families:
 
-* Linux
-* BSD
+* Debian
+  * Ubuntu, Mint
+* Red Hat Enterprise Linux
+  * Amazon, CentOS, Oracle
+* OpenSuse
 
 Platforms validated via Test Kitchen:
 
 * Ubuntu
 * Debian
 * CentOS
+* Oracle
 * Fedora
-* FreeBSD
+* Amazon
+* OpenSuse
 
 Notes:
 
