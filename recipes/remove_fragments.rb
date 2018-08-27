@@ -2,9 +2,11 @@
 
 tcb = 'motd_chef_status'
 
-# Still exists on Debian, will print on Ubuntu if it exists
-file '/etc/motd' do
-  action :delete
+if platform_supports_dynamic_motd? # If we do nothing or emulate, do not blow this away
+  # Still exists on Debian, will print on Ubuntu if it exists
+  file '/etc/motd' do
+    action :delete
+  end
 end
 
 unless node[tcb]['add_header_fragment'] && node[tcb]['header_position'] == '00'

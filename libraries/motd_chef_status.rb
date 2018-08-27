@@ -40,6 +40,10 @@ module MOTDChefStatus
     def chef_client_max_delay_minutes
       return (chef_client_interval_s + chef_client_splay_s) / 60
     end
+
+    def platform_supports_dynamic_motd?
+      return node['platform'] != 'debian' || node['platform_version'] !~ /^[7-8]/
+    end
   end
 end
 
