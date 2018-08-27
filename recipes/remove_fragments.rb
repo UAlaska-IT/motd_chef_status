@@ -25,9 +25,11 @@ motd_fragment '10-uname' do
   template_source ''
 end
 
+# Amazon is weird because changes to /etc/update-motd/ or /etc/profile.d/ kill the dynamic motd
 if node[tcb]['remove_document_fragments']
   [
     '10-help-text', # Ubuntu 18, 16, 14 desktop help
+    '30-banner', # Amazon banner
     '50-motd-news', # Ubuntu 18 dynamic news
     '51-cloudguest' # Ubuntu cloud help
   ].each do |fragment|
@@ -55,6 +57,8 @@ end
 
 if node[tcb]['remove_update_fragments']
   [
+    '70-available-updates', # Amazon update check
+    '75-system-update', # Amazon updates
     '80-esm', # Ubuntu 18 extended support status
     '80-livepatch', # Ubuntu 18 livepatch install status
     '90-updates-available', # Ubuntu 16, 14 update check
