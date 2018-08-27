@@ -2,7 +2,7 @@
 
 provides :motd_fragment
 
-property :fragment_name, String, default: nil
+property :fragment_name, [String, nil], default: nil
 property :template_cookbook, String, required: true
 property :template_source, String, required: true
 property :template_variables, Hash, default: {}
