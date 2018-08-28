@@ -9,5 +9,3 @@ Style/SymbolArray:
   EnforcedStyle: brackets
 Style/WordArray:
   EnforcedStyle: brackets
-Style/SymbolArray:
-  EnforcedStyle: brackets
