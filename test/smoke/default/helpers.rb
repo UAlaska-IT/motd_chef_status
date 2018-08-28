@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'json'
-
 def every_added_fragment
   return ['00-header', '99-chef-manage-status']
 end
