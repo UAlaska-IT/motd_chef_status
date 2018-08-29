@@ -3,7 +3,8 @@
 tcb = 'motd_chef_status'
 
 var_map = {
-  host_name: node['hostname'],
+  FQDN: node['fqdn'],
+  server_owner: node[tcb]['server_owner'],
   node_name_file: path_to_last_run_node_name,
   success_file: path_to_last_run_success_flag,
   maxium_delay: chef_client_max_delay_minutes,

@@ -8,6 +8,9 @@ provisioner:
   product_name: chef
   product_version: 14.2.0
   install_strategy: always
+  attributes:
+    motd_chef_status:
+      server_owner: 'Fake Dept. (fake@fake.org)'
 
 verifier:
   name: inspec
