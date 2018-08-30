@@ -17,6 +17,17 @@ When it is available and works on the platform, update-motd is used. Otherwise p
 The MOTD message is reasonably standard across platforms.
 This cookbook does not configure SSH, so any login message will remain.
 Effort has been made to remove fragments from standard distributions and cloud-provider fragments, but is it infeasible to remove every possible fragment while respecting attributes that govern their removal.
+
+By default, MOTD on various platforms will appear similar to below.
+
+__Ubuntu__
+
+[[https://alaska.edu/files/oit/github/motd_chef_status_screenshot_v_0_2_ubuntu_18.png|alt=Ubuntu Screenshot]]
+
+__CentOS__
+
+[[https://alaska.edu/files/oit/github/motd_chef_status_screenshot_v_0_2_centos_7.png|alt=CentOS Screenshot]]
+
 ## Requirements
 
 ### Chef
