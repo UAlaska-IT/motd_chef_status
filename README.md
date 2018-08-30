@@ -25,11 +25,11 @@ By default, MOTD on various platforms will appear similar to below.
 
 __Ubuntu__
 
-[[https://alaska.edu/files/oit/github/motd_chef_status_screenshot_v_0_2_ubuntu_18.png|alt=Ubuntu Screenshot]]
+![Ubuntu Screenshot](https://alaska.edu/files/oit/github/motd_chef_status_screenshot_v_0_2_ubuntu_18.png)
 
 __CentOS__
 
-[[https://alaska.edu/files/oit/github/motd_chef_status_screenshot_v_0_2_centos_7.png|alt=CentOS Screenshot]]
+![CentOS Screenshot](https://alaska.edu/files/oit/github/motd_chef_status_screenshot_v_0_2_centos_7.png)
 
 ## Requirements
 
