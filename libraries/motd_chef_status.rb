@@ -17,6 +17,10 @@ module MOTDChefStatus
       return (['rhel', 'fedora', 'amazon', 'suse'].include? node['platform_family']) || broken_debian?
     end
 
+    def install_update_motd?
+      return working_update_motd? && node['platform'] != 'debian'
+    end
+
     def platform_supports_dynamic_motd?
       return working_update_motd? || profile_fallback?
     end

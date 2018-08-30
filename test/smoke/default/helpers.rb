@@ -37,6 +37,10 @@ def profile_fallback?(node)
   return (['rhel', 'fedora', 'amazon', 'suse'].include? node['platform_family']) || broken_debian?(node)
 end
 
+def install_update_motd?(node)
+  return working_update_motd?(node) && node['platform'] != 'debian'
+end
+
 def fragment_directory(node)
   return '/etc/update-motd.d/' if working_update_motd?(node)
   return '/etc/profile.d/' if profile_fallback?(node)

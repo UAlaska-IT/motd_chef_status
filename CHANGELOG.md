@@ -1,5 +1,9 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 0.2.0
+
+* Added FQDN and owner to header
+
 ## 0.1.0
 
 * Initial release

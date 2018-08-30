@@ -7,3 +7,5 @@ default[tcb]['add_chef_fragment'] = true
 
 default[tcb]['header_position'] = '00'
 default[tcb]['chef_status_position'] = '99'
+
+default[tcb]['server_owner'] = ''
