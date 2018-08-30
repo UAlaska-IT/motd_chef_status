@@ -1,5 +1,8 @@
 # MOTD Chef Status Cookbook
 
+[![License](https://img.shields.io/github/license/ualaska-it/motd_chef_status.svg)](https://github.com/ualaska-it/motd_chef_status)
+[![GitHub Tag](https://img.shields.io/github/tag/ualaska-it/motd_chef_status.svg)](https://github.com/ualaska-it/motd_chef_status)
+
 __Maintainer: OIT Systems Engineering__ (<ua-oit-se@alaska.edu>)
 
 ## Purpose
