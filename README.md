@@ -123,6 +123,8 @@ __Attributes__
 * `node['motd_chef_status']['add_chef_fragment']` - Defaults to `true`. Determines if the Chef status/warning fragment is installed.
 * `node['motd_chef_status']['chef_status_position']` - Defaults to `'99'`. Determines the position of the Chef fragment.  The default position is at the end of the MOTD.
 
+* `node['motd_chef_status']['server_owner']` - Defaults to `''`.  The owner/manager of the server. If not empty the header will include a line for the owner.
+
 ## Examples
 
 The `motd_fragment` resource can be used as below.
