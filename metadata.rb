@@ -18,7 +18,7 @@ supports 'centos', '>= 6.0'
 supports 'oracle', '>= 6.0'
 supports 'fedora'
 supports 'amazon'
-supports 'suse'
+# supports 'suse'
 # supports 'opensuse'
 # supports 'freebsd', '>= 10.0'
 
