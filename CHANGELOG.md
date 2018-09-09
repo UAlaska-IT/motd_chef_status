@@ -1,5 +1,9 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 0.2.2
+
+* Refactored documentation
+
 ## 0.2.1
 
 * Added Screenshots to ReadMe
