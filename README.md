@@ -67,6 +67,10 @@ Notes:
 
 * This cookbook should support any recent Linux variant with the caveat that it will not clear novel MOTD fragments.
 
+### Dependencies
+
+This cookbook does not constrain its dependencies because it is intended as a utility library.  It should ultimately be used within a wrapper cookbook.
+
 ## Resources
 
 This cookbook provides one resources for configuring and installing a MOTD fragment. The fragment will be placed in the appropriate directory and given the appropriate extension for the platform.
@@ -146,3 +150,7 @@ motd_fragment 'motd-header' do
   template_variables {}
 end
 ```
+
+## Development
+
+See CONTRIBUTING.md and TESTING.md.
