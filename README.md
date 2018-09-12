@@ -41,7 +41,7 @@ Timing will turn red if the last run occurred longer ago than the maximum durati
 
 ### Chef
 
-This cookbook requires Chef 13+
+This cookbook requires Chef 14+
 
 ### Platforms
 

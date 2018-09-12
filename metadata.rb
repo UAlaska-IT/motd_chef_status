@@ -22,6 +22,6 @@ supports 'amazon'
 # supports 'opensuse'
 # supports 'freebsd', '>= 10.0'
 
-chef_version '>= 13.0' if respond_to?(:chef_version)
+chef_version '>= 14.0' if respond_to?(:chef_version)
 
 depends 'chef_run_recorder'
