@@ -41,7 +41,7 @@ Timing will turn red if the last run occurred longer ago than the maximum durati
 
 ### Chef
 
-This cookbook requires Chef 13+
+This cookbook requires Chef 14+
 
 ### Platforms
 
@@ -66,6 +66,10 @@ Platforms validated via Test Kitchen:
 Notes:
 
 * This cookbook should support any recent Linux variant with the caveat that it will not clear novel MOTD fragments.
+
+### Dependencies
+
+This cookbook does not constrain its dependencies because it is intended as a utility library.  It should ultimately be used within a wrapper cookbook.
 
 ## Resources
 
@@ -146,3 +150,7 @@ motd_fragment 'motd-header' do
   template_variables {}
 end
 ```
+
+## Development
+
+See CONTRIBUTING.md and TESTING.md.
