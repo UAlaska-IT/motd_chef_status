@@ -5,6 +5,8 @@ LineLength:
   Max: 120 # Default is 80
 Metrics/BlockLength:
   Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
 RedundantReturn:
   Enabled: false
 Style/SymbolArray:
