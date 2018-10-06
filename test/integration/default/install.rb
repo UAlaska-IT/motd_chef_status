@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'helpers'
+require_relative '../helpers'
 
 node = json(path_to_node_record)['automatic']
 

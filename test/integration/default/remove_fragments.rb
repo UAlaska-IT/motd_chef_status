@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'helpers'
+require_relative '../helpers'
 
 describe file('/etc/motd') do
   it { should_not exist }
