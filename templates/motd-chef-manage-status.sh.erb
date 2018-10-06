@@ -12,7 +12,7 @@ if [ -f '<%= @success_file %>' ]; then
     LAST_SUCCESS="$MOTD_RED failed$MOTD_NO_COLOR"
   fi
 else
-  LAST_SUCCESS=' '
+  LAST_SUCCESS=''
 fi
 
 if [ -f <%= @timestamp_file %> ]; then
