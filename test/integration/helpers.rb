@@ -5,7 +5,14 @@ def every_added_fragment
 end
 
 def every_removed_fragment
-  return ['10-uname', '10-help-text', '30-banner', '50-motd-news', '51-cloudguest']
+  return [
+    '10-uname', # Always
+    '10-help-text', # Document
+    '30-banner',
+    '50-motd-news',
+    '51-cloudguest'
+    # Other fragments are status or update and kept by default
+  ]
 end
 
 def every_fragment_directory
