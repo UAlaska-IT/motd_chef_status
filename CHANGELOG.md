@@ -1,5 +1,9 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 0.2.3
+
+* Added check for node record
+
 ## 0.2.2
 
 * Refactored documentation

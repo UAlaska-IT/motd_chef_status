@@ -12,7 +12,7 @@ if [ -f '<%= @success_file %>' ]; then
     LAST_SUCCESS="$MOTD_RED failed$MOTD_NO_COLOR"
   fi
 else
-  LAST_SUCCESS=' '
+  LAST_SUCCESS=''
 fi
 
 if [ -f <%= @timestamp_file %> ]; then
@@ -30,6 +30,11 @@ fi
 echo '************************************************************'
 echo '* Chef managed system:'
 printf "* ${MOTD_YELLOW}NO CHANGES${MOTD_NO_COLOR} to this system except through Chef.\n"
-printf "* Node: `cat '<%= @node_name_file %>'`, last$LAST_SUCCESS Chef run was $MOTD_COLOR$LAST_RUN minute(s)$MOTD_NO_COLOR ago.\n"
+if [ -f <%= @node_name_file %> ]; then
+  printf "* Node: `cat '<%= @node_name_file %>'`"
+else
+  printf "* Node: ${MOTD_YELLOW}Unknown${MOTD_NO_COLOR}"
+fi
+printf ", last$LAST_SUCCESS Chef run was $MOTD_COLOR$LAST_RUN minute(s)$MOTD_NO_COLOR ago.\n"
 echo '************************************************************'
 echo ''
