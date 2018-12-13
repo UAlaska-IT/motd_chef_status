@@ -27,3 +27,14 @@ default[tcb]['status_fragments'] = [
 
 # Update-related fragments
 default[tcb]['remove_update_fragments'] = false
+
+default[tcb]['update_fragments'] = [
+  '70-available-updates', # Amazon update check
+  '75-system-update', # Amazon updates
+  '80-esm', # Ubuntu 18 extended support status
+  '80-livepatch', # Ubuntu 18 livepatch install status
+  '90-updates-available', # Ubuntu 16, 14 update check
+  '91-release-upgrade', # Ubuntu 18, 16, 14 release upgrade check
+  '95-hwe-eol', # Ubuntu 18, 14 end of life check?
+  '98-reboot-required' # Ubuntu 18, 16, 14 reboot check
+]
