@@ -22,14 +22,10 @@ platforms:
   - name: ubuntu-16.04-i386
   - name: ubuntu-14.04
   - name: ubuntu-14.04-i386
-  - name: ubuntu-12.04
-  - name: ubuntu-12.04-i386
   - name: debian-9.5
   - name: debian-9.5-i386
   - name: debian-8.11
-  - name: debian-8.10-i386
-  - name: debian-7.11
-  - name: debian-7.11-i386
+  - name: debian-8.11-i386
   - name: centos-7.5
   - name: centos-6.10
   - name: centos-6.10-i386
@@ -42,12 +38,14 @@ platforms:
   - name: oracle-5.11-i386
   - name: fedora-28
   - name: fedora-27
-  - name: fedora-26
-  - name: gbailey/amzn2 # 2018.08
+  - name: gbailey/amzn2 # 2018.11
+  - name: winky/amazonlinux-2 # 2017.12
   - name: stakahashi/amazonlinux2 # 2017.12
   - name: realreadme/amazon2016.09
   - name: opensuse-leap-15.0
   - name: opensuse-leap-42.3
+  - name: freebsd-12.0
+  - name: freebsd-12.0-i386
   - name: freebsd-11.2
   - name: freebsd-11.2-i386
   - name: freebsd-10.4
@@ -76,14 +74,10 @@ suites:
       - ubuntu-16.04-i386
       - ubuntu-14.04
       - ubuntu-14.04-i386
-      #- ubuntu-12.04 # Chef 13 dropped support
-      #- ubuntu-12.04-i386 # Chef 13 dropped support
       - debian-9.5
       #- debian-9.5-i386 # Chef 14.4 dropped support
       - debian-8.11
-      #- debian-8.10-i386 # Chef 14.4 dropped support
-      #- debian-7.11 # Chef 14.4 dropped support
-      #- debian-7.11-i386 # Chef 14.4 dropped support
+      #- debian-8.11-i386 # Chef 14.4 dropped support
   - name: rhel-based
     run_list:
       - recipe[motd_chef_status::default]
@@ -104,7 +98,6 @@ suites:
       #- oracle-5.11-i386 # Chef 14 dropped support
       - fedora-28
       - fedora-27
-      - fedora-26
   - name: all-others
     run_list:
       - recipe[motd_chef_status::default]
@@ -114,10 +107,13 @@ suites:
     attributes:
     includes:
       - gbailey/amzn2
+      - winky/amazonlinux-2
       #- stakahashi/amazonlinux2 # Omnibus detection for Amazon 2 is currently broken
       - realreadme/amazon2016.09
       #- opensuse-leap-15.0 # VBox additions are broken
       #- opensuse-leap-42.3 # Chef 14 install is broken
+      #- freebsd-12.0 # Box does not exist
+      #- freebsd-12.0-i386 # Box does not exist
       #- freebsd-11.2 # freebsd has not been worth investigating
       #- freebsd-11.2-i386 # Chef package not found
       #- freebsd-10.4 # freebsd has not been worth investigating
