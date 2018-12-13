@@ -27,7 +27,9 @@ module MOTDChefStatus
 
     def fragment_directory
       return '/etc/update-motd.d/' if working_update_motd?
+
       return '/etc/profile.d/' if profile_fallback?
+
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
@@ -37,19 +39,25 @@ module MOTDChefStatus
 
     def fragment_extension
       return '' if working_update_motd?
+
       return '.sh' if profile_fallback?
+
       raise "Platform family not supported: #{node['platform_family']}"
     end
 
     def chef_client_interval_s
       return Integer(Chef::Config[:interval]) if Chef::Config[:interval]
+
       return Integer(node['chef_client']['interval']) if node.attribute?('chef_client')
+
       return 1800 # The default is 30 minutes
     end
 
     def chef_client_splay_s
       return Integer(Chef::Config[:splay]) if Chef::Config[:splay]
+
       return Integer(node['chef_client']['splay']) if node.attribute?('chef_client')
+
       return 300 # The default is 5 minutes
     end
 
