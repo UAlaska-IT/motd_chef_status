@@ -13,4 +13,9 @@ every_added_fragment.each do |frag|
     it { should be_owned_by 'root' }
     it { should be_grouped_into root_group(node) }
   end
+
+  describe bash(path_to_fragment) do
+    its(:exit_status) { should eq 0 }
+    its(:stderr) { should eq '' }
+  end
 end
