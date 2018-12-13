@@ -10,7 +10,8 @@ def every_removed_fragment
     '10-help-text', # Document
     '30-banner',
     '50-motd-news',
-    '51-cloudguest'
+    '51-cloudguest',
+    '80-livepatch'
     # Other fragments are status or update and kept by default
   ]
 end
