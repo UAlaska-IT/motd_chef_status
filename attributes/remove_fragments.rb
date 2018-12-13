@@ -19,5 +19,11 @@ default[tcb]['document_fragments'] = [
 # Status-related fragments
 default[tcb]['remove_status_fragments'] = false
 
+default[tcb]['status_fragments'] = [
+  '50-landscape-sysinfo', # Ubuntu 18, 14 landscape info
+  '97-overlayroot', # Ubuntu 18, 16 ???
+  '98-fsck-at-reboot' # Ubuntu 18, 16, 14 disk check
+]
+
 # Update-related fragments
 default[tcb]['remove_update_fragments'] = false

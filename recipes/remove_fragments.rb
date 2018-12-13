@@ -37,11 +37,7 @@ if node[tcb]['remove_document_fragments']
 end
 
 if node[tcb]['remove_status_fragments']
-  [
-    '50-landscape-sysinfo', # Ubuntu 18, 14 landscape info
-    '97-overlayroot', # Ubuntu 18, 16 ???
-    '98-fsck-at-reboot' # Ubuntu 18, 16, 14 disk check
-  ].each do |fragment|
+  node[tcb]['status_fragments'].each do |fragment|
     motd_fragment fragment do
       action :delete
       template_cookbook ''
