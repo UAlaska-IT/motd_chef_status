@@ -3,6 +3,7 @@
 ## 0.2.3
 
 * Added check for node record
+* Updated kitchen platforms and platform support
 
 ## 0.2.2
 
