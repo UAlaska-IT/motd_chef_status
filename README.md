@@ -90,9 +90,12 @@ __Attributes__
 
 This resource has four attributes.
 
-* `fragment_name` - Defaults to `nil`. The stem of the fragment file, if nil the name of the resource is used.
-* `template_cookbook` - Required. The name of the cookbook where the fragment is located.
-* `template_source` - Required. The name of the template to use for the fragment, inside template_cookbook/templates/.
+* `fragment_name` - Defaults to `nil`.
+The stem of the fragment file, if nil the name of the resource is used.
+* `template_cookbook` - Required.
+The name of the cookbook where the fragment is located.
+* `template_source` - Required.
+The name of the template to use for the fragment, inside template_cookbook/templates/.
 * `template_variables` - Defaults to `{}`.
 
 ## Recipes
@@ -119,10 +122,24 @@ This recipe removes possibly all pre-existing MOTD fragments to keep the login u
 
 __Attributes__
 
-* `node['motd_chef_status']['remove_existing_fragments']` - Defaults to `true`. Determines if existing fragments are removed. If false, the attributes below have no effect.
-* `node['motd_chef_status']['remove_document_fragments']` - Defaults to `true`. Determines if documentation-related fragments are removed.
-* `node['motd_chef_status']['remove_status_fragments']` - Defaults to `false`. Determines if status-related fragments are removed.
-* `node['motd_chef_status']['remove_update_fragments']` - Defaults to `false`. Determines is update-related fragments are removed.
+* `node['motd_chef_status']['remove_existing_fragments']` - Defaults to `true`.
+Determines if existing fragments are removed. If false, the attributes below have no effect.
+* `node['motd_chef_status']['remove_document_fragments']` - Defaults to `true`.
+Determines if documentation-related fragments are removed.
+* `node['motd_chef_status']['remove_status_fragments']` - Defaults to `false`.
+Determines if status-related fragments are removed.
+* `node['motd_chef_status']['remove_update_fragments']` - Defaults to `false`.
+Determines is update-related fragments are removed.
+
+Three attributes determine the fragments that are deleted.
+Each fragment list has no effect if the corresponding fragment type is not removed.
+
+* `node['motd_chef_status']['document_fragments']` - Defaults to an array of fragment files.
+The list of document fragments to delete.
+* `node['motd_chef_status']['status_fragments']` - Defaults to an array of fragment files.
+The list of document status to delete.
+* `node['motd_chef_status']['update_fragments']` - Defaults to an array of fragment files.
+The list of update fragments to delete.
 
 ### motd_chef_status::add_fragments
 
@@ -130,13 +147,20 @@ This recipe installs possibly two fragments, one a banner and the other a Chef w
 
 __Attributes__
 
-* `node['motd_chef_status']['add_header_fragment']` - Defaults to `true`. Determines if the header fragment is installed.
-* `node['motd_chef_status']['header_position']` - Defaults to `'00'`. Determines the position of the header fragment. The default position places the header before anything else.
+* `node['motd_chef_status']['add_header_fragment']` - Defaults to `true`.
+Determines if the header fragment is installed.
+* `node['motd_chef_status']['header_position']` - Defaults to `'00'`.
+Determines the position of the header fragment.
+The default position places the header before anything else.
 
-* `node['motd_chef_status']['add_chef_fragment']` - Defaults to `true`. Determines if the Chef status/warning fragment is installed.
-* `node['motd_chef_status']['chef_status_position']` - Defaults to `'99'`. Determines the position of the Chef fragment.  The default position is at the end of the MOTD.
+* `node['motd_chef_status']['add_chef_fragment']` - Defaults to `true`.
+Determines if the Chef status/warning fragment is installed.
+* `node['motd_chef_status']['chef_status_position']` - Defaults to `'99'`.
+Determines the position of the Chef fragment.  The default position is at the end of the MOTD.
 
-* `node['motd_chef_status']['server_owner']` - Defaults to `''`.  The owner/manager of the server. If not empty the header will include a line for the owner.
+* `node['motd_chef_status']['server_owner']` - Defaults to `''`.
+The owner/manager of the server.
+If not empty the header will include a line for the owner.
 
 ## Examples
 

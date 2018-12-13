@@ -23,7 +23,7 @@ FQDN=<%= @FQDN %>
 OWNER='<%= @server_owner %>'
 
 echo ''
-if [ "$NODE" == "$FQDN" ] ; then
+if [ "$NODE" = "$FQDN" ] ; then
   printf "Welcome to $NODE\n"
 else
   printf "Welcome to $NODE ($FQDN)\n"

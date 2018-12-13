@@ -10,7 +10,8 @@ def every_removed_fragment
     '10-help-text', # Document
     '30-banner',
     '50-motd-news',
-    '51-cloudguest'
+    '51-cloudguest',
+    '80-livepatch'
     # Other fragments are status or update and kept by default
   ]
 end
@@ -29,6 +30,7 @@ end
 
 def root_group(node)
   return 'wheel' if node['platform_family'] == 'freebsd'
+
   return 'root'
 end
 
@@ -50,13 +52,17 @@ end
 
 def fragment_directory(node)
   return '/etc/update-motd.d/' if working_update_motd?(node)
+
   return '/etc/profile.d/' if profile_fallback?(node)
+
   raise "Platform family not supported (directory): #{node['platform_family']}"
 end
 
 def fragment_extension(node)
   return '' if working_update_motd?(node)
+
   return '.sh' if profile_fallback?(node)
+
   puts("PLATFORM = #{node['platform_family']}")
   # raise "Platform family not supported (extension): #{node['platform_family']}"
   return 'NOT FOUND'

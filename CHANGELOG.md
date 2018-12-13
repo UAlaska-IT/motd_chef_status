@@ -1,5 +1,10 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 0.3.0
+
+* Added attributes for fragments
+* Updated kitchen platforms and platform support
+
 ## 0.2.3
 
 * Added check for node record
