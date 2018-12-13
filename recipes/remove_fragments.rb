@@ -27,13 +27,7 @@ end
 
 # Amazon is weird because changes to /etc/update-motd/ or /etc/profile.d/ kill the dynamic motd
 if node[tcb]['remove_document_fragments']
-  [
-    '10-help-text', # Ubuntu 18, 16, 14 desktop help
-    '30-banner', # Amazon banner
-    '50-motd-news', # Ubuntu 18 dynamic news
-    '51-cloudguest', # Ubuntu cloud help
-    '80-livepatch' # Ubuntu livepatch plug
-  ].each do |fragment|
+  node[tcb]['document_fragments'].each do |fragment|
     motd_fragment fragment do
       action :delete
       template_cookbook ''
