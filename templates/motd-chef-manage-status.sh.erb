@@ -17,14 +17,14 @@ fi
 
 if [ -f <%= @timestamp_file %> ]; then
   LAST_RUN=$(expr $(expr $(date +%s) - `cat '<%= @timestamp_file %>'`) / 60)
+  if [ $LAST_RUN -le <%= @maxium_delay %> ]; then
+    MOTD_COLOR=$MOTD_GREEN
+  else
+    MOTD_COLOR=$MOTD_RED
+  fi
 else
-  LAST_RUN="unknown"
-fi
-
-if [ $LAST_RUN -le <%= @maxium_delay %> ]; then
-  MOTD_COLOR=$MOTD_GREEN
-else
-  MOTD_COLOR=$MOTD_RED
+  LAST_RUN="never"
+  MOTD_COLOR=$MOTD_YELLOW
 fi
 
 echo '************************************************************'

@@ -1,5 +1,9 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 1.0.0
+
+* Improved timing detection when Chef handlers have never run
+
 ## 0.3.0
 
 * Added attributes for fragments
