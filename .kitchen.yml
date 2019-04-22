@@ -1,12 +1,21 @@
 ---
 driver:
-  name: vagrant
+  name: ec2
+  region: us-west-1
+  instance_type: t2.micro
+  tags:
+    Name: Chef Run Recorder
+    Service: Infrastructure
+    Environment: Test
+    Fund: 103010
+    Org: 60412
+    Department: Systems Engineering
 
 provisioner:
   name: chef_zero
   always_update_cookbooks: true
   product_name: chef
-  product_version: 14.8.12
+  product_version: 14.10.9
   install_strategy: always
   attributes:
     motd_chef_status:
@@ -15,47 +24,33 @@ provisioner:
 verifier:
   name: inspec
 
-# Every bento box supported by Chef 14
 platforms:
   - name: ubuntu-18.04
   - name: ubuntu-16.04
-  - name: ubuntu-16.04-i386
   - name: ubuntu-14.04
-  - name: ubuntu-14.04-i386
-  - name: debian-9.5
-  - name: debian-9.5-i386
-  - name: debian-8.11
-  - name: debian-8.11-i386
-  - name: centos-7.5
-  - name: centos-6.10
-  - name: centos-6.10-i386
-  - name: centos-5.11
-  - name: centos-5.11-i386
-  - name: oracle-7.5
+  - name: debian-9
+  - name: debian-8
+  - name: centos-7
+  - name: centos-6
+  - name: oracle-7.6
   - name: oracle-6.10
-  - name: oracle-6.10-i386
-  - name: oracle-5.11
-  - name: oracle-5.11-i386
+  - name: fedora-29
   - name: fedora-28
-  - name: fedora-27
-  - name: gbailey/amzn2 # 2018.11
-  - name: stakahashi/amazonlinux2 # 2017.12
-  - name: realreadme/amazon2016.09
-  - name: opensuse-leap-15.0
-  - name: opensuse-leap-42.3
-  - name: freebsd-12.0
-  - name: freebsd-12.0-i386
-  - name: freebsd-11.2
-  - name: freebsd-11.2-i386
-  - name: freebsd-10.4
-  - name: freebsd-10.4-i386
-  - name: mwrock/Windows2016
+  - name: amazon2
+  - name: amazon-
+  - name: sles-15
+  - name: windows-2019
+    driver:
+      image_id: ami-087efd22b572d6bc1
     transport:
       name: winrm
-  - name: a-mcf/Win2012R2-WMF5-min
+  - name: windows-2016
     transport:
       name: winrm
-  - name: salesforce/server2008r2
+  - name: windows-2012r2
+    transport:
+      name: winrm
+  - name: windows-2008r2sp1
     transport:
       name: winrm
 
@@ -70,13 +65,9 @@ suites:
     includes:
       - ubuntu-18.04
       - ubuntu-16.04
-      - ubuntu-16.04-i386
       - ubuntu-14.04
-      - ubuntu-14.04-i386
-      - debian-9.5
-      #- debian-9.5-i386 # Chef 14.4 dropped support
-      - debian-8.11
-      #- debian-8.11-i386 # Chef 14.4 dropped support
+      - debian-9
+      - debian-8
   - name: rhel-based
     run_list:
       - recipe[motd_chef_status::default]
@@ -85,18 +76,12 @@ suites:
         - test/integration/default
     attributes:
     includes:
-      - centos-7.5
-      - centos-6.10
-      - centos-6.10-i386
-      #- centos-5.11 # Chef 14 dropped support
-      #- centos-5.11-i386 # Chef 14 dropped support
-      - oracle-7.5
+      - centos-7
+      - centos-6
+      - oracle-7.6
       - oracle-6.10
-      - oracle-6.10-i386
-      #- oracle-5.11 # Chef 14 dropped support
-      #- oracle-5.11-i386 # Chef 14 dropped support
+      - fedora-29
       - fedora-28
-      - fedora-27
   - name: all-others
     run_list:
       - recipe[motd_chef_status::default]
@@ -105,14 +90,10 @@ suites:
         - test/integration/default
     attributes:
     includes:
-      #- gbailey/amzn2 # Tests broken?
-      #- stakahashi/amazonlinux2 # Omnibus detection for Amazon 2 is currently broken
-      - realreadme/amazon2016.09
-      #- opensuse-leap-15.0 # VBox additions are broken
-      #- opensuse-leap-42.3 # Chef 14 install is broken
-      #- freebsd-12.0 # Box does not exist
-      #- freebsd-12.0-i386 # Box does not exist
-      #- freebsd-11.2 # freebsd has not been worth investigating
-      #- freebsd-11.2-i386 # Chef package not found
-      #- freebsd-10.4 # freebsd has not been worth investigating
-      #- freebsd-10.4-i386 # Box does not exist
+      - amazon2
+      - amazon-
+      - sles-15
+      - windows-2019
+      - windows-2016
+      - windows-2012r2
+      - windows-2008r2sp1
