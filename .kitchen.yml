@@ -4,7 +4,7 @@ driver:
   region: us-west-1
   instance_type: t2.micro
   tags:
-    Name: Chef Run Recorder
+    Name: MOTD Chef Status
     Service: Infrastructure
     Environment: Test
     Fund: 103010
