@@ -11,7 +11,7 @@ git_url = 'https://github.com/ualaska-it/motd_chef_status'
 source_url git_url if respond_to?(:source_url)
 issues_url "#{git_url}/issues" if respond_to?(:issues_url)
 
-version '1.0.0'
+version '1.0.1'
 
 supports 'ubuntu', '>= 14.0'
 supports 'debian', '>= 8.0'
@@ -20,9 +20,8 @@ supports 'centos', '>= 6.0'
 supports 'oracle', '>= 6.0'
 supports 'fedora'
 supports 'amazon'
-# supports 'suse'
+supports 'suse'
 # supports 'opensuse'
-# supports 'freebsd', '>= 10.0'
 
 chef_version '>= 14.0' if respond_to?(:chef_version)
 

@@ -51,7 +51,9 @@ Supported Platform Families:
   * Ubuntu, Mint
 * Red Hat Enterprise Linux
   * Amazon, CentOS, Oracle
-* OpenSuse
+* Suse
+* BSD
+* Windows
 
 Platforms validated via Test Kitchen:
 
@@ -61,7 +63,8 @@ Platforms validated via Test Kitchen:
 * Oracle
 * Fedora
 * Amazon
-* OpenSuse
+* Suse
+* Windows
 
 Notes:
 
@@ -69,11 +72,13 @@ Notes:
 
 ### Dependencies
 
-This cookbook does not constrain its dependencies because it is intended as a utility library.  It should ultimately be used within a wrapper cookbook.
+This cookbook does not constrain its dependencies because it is intended as a utility library.
+It should ultimately be used within a wrapper cookbook.
 
 ## Resources
 
-This cookbook provides one resources for configuring and installing a MOTD fragment. The fragment will be placed in the appropriate directory and given the appropriate extension for the platform.
+This cookbook provides one resources for configuring and installing a MOTD fragment.
+The fragment will be placed in the appropriate directory and given the appropriate extension for the platform.
 
 ### motd_fragment
 

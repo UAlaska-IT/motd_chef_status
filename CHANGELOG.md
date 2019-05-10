@@ -1,5 +1,9 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 1.0.1
+
+* Updated kitchen to use EC2
+
 ## 1.0.0
 
 * Improved timing detection when Chef handlers have never run
