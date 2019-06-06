@@ -1,5 +1,9 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 1.0.2
+
+* Updated AMI for Win 2019
+
 ## 1.0.1
 
 * Updated kitchen to use EC2
