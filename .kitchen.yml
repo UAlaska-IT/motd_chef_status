@@ -6,7 +6,7 @@ driver:
   tags:
     Name: MOTD Chef Status
     Service: Infrastructure
-    Environment: aws_test
+    Environment: Test
     Fund: 103010
     Org: 60412
     Department: Systems Engineering
