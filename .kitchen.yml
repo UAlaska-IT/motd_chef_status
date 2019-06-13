@@ -41,7 +41,7 @@ platforms:
   - name: sles-15
   - name: windows-2019
     driver:
-      image_id: ami-087efd22b572d6bc1
+      image_id: ami-004a782f694e8dde2
     transport:
       name: winrm
   - name: windows-2016
