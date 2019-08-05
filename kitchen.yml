@@ -15,7 +15,7 @@ provisioner:
   name: chef_zero
   always_update_cookbooks: true
   product_name: chef
-  product_version: 14.10.9
+  product_version: 15.1.36
   install_strategy: always
   attributes:
     motd_chef_status:
@@ -29,7 +29,6 @@ platforms:
   - name: ubuntu-16.04
   - name: ubuntu-14.04
   - name: debian-9
-  - name: debian-8
   - name: centos-7
   - name: centos-6
   - name: oracle-7.6
@@ -37,7 +36,7 @@ platforms:
   - name: fedora-29
   - name: fedora-28
   - name: amazon2
-  - name: amazon-
+  - name: amazon2-2018
   - name: sles-15
   - name: windows-2019
     driver:
@@ -67,7 +66,6 @@ suites:
       - ubuntu-16.04
       - ubuntu-14.04
       - debian-9
-      - debian-8
   - name: rhel-based
     run_list:
       - recipe[motd_chef_status::default]
@@ -77,7 +75,6 @@ suites:
     attributes:
     includes:
       - centos-7
-      - centos-6
       - oracle-7.6
       - oracle-6.10
       - fedora-29
@@ -91,5 +88,5 @@ suites:
     attributes:
     includes:
       - amazon2
-      - amazon-
+      - amazon2-2018
       - sles-15
