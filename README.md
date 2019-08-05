@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/github/license/ualaska-it/motd_chef_status.svg)](https://github.com/ualaska-it/motd_chef_status)
 [![GitHub Tag](https://img.shields.io/github/tag/ualaska-it/motd_chef_status.svg)](https://github.com/ualaska-it/motd_chef_status)
+[![Build status](https://ci.appveyor.com/api/projects/status/wrgbu7h3iv4cfwjt/branch/master?svg=true)](https://ci.appveyor.com/project/UAlaska/motd-chef-status/branch/master)
 
 __Maintainer: OIT Systems Engineering__ (<ua-oit-se@alaska.edu>)
 

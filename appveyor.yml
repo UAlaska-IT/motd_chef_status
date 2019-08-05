@@ -1,0 +1,24 @@
+image:  Ubuntu1804
+
+install:
+  - |
+    chef_version='0.7.4'
+    chef_url="https://packages.chef.io/files/stable/chef-workstation/${chef_version}/ubuntu/18.04/chef-workstation_${chef_version}-1_amd64.deb"
+    chef_file='chef.deb'
+    wget "${chef_url}" -O "${chef_file}"
+    sudo dpkg -i "${chef_file}"
+  - |
+    vagrant_version='2.2.5'
+    vagrant_url="https://releases.hashicorp.com/vagrant/${vagrant_version}/vagrant_${vagrant_version}_x86_64.deb"
+    vagrant_file='vagrant.deb'
+    wget "${vagrant_url}" -O "${vagrant_file}"
+    sudo dpkg -i "${vagrant_file}"
+
+build: off
+
+test_script:
+  - CHEF_LICENSE="accept" chef exec rubocop
+  - foodcritic .
+  - berks install
+  - chef exec rspec --fail-fast -fd
+  - KITCHEN_YAML="kitchen.appveyor.yml" kitchen test --no-color --destroy=always

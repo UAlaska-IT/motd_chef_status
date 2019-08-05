@@ -1,0 +1,55 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  always_update_cookbooks: true
+  product_name: chef
+  product_version: 15.1.36
+  install_strategy: always
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-18.04
+  - name: ubuntu-16.04
+  - name: ubuntu-14.04
+  - name: debian-9
+  - name: debian-8
+  - name: centos-7
+  - name: centos-6
+  - name: oracle-7.6
+  - name: oracle-6.10
+  - name: fedora-29
+  - name: fedora-28
+  - name: amazon2
+  - name: amazon2-2018
+  - name: sles-15
+  - name: windows-2019
+    driver:
+      image_id: ami-004a782f694e8dde2
+    transport:
+      name: winrm
+  - name: windows-2016
+    transport:
+      name: winrm
+  - name: windows-2012r2
+    transport:
+      name: winrm
+  - name: windows-2008r2sp1
+    transport:
+      name: winrm
+
+suites:
+  - name: default
+    run_list:
+      - recipe[motd_chef_status::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+    includes:
+      - ubuntu-18.04
+      - centos-7
