@@ -1,5 +1,9 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 1.0.3
+
+* Added Appveyor logic
+
 ## 1.0.2
 
 * Updated AMI for Win 2019
