@@ -11,7 +11,7 @@ git_url = 'https://github.com/ualaska-it/motd_chef_status'
 source_url git_url if respond_to?(:source_url)
 issues_url "#{git_url}/issues" if respond_to?(:issues_url)
 
-version '1.0.3'
+version '1.0.4'
 
 supports 'ubuntu', '>= 14.0'
 supports 'debian', '>= 8.0'
