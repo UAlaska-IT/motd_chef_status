@@ -8,7 +8,7 @@ var_map = {
   node_name_file: path_to_last_run_node_name,
   success_file: path_to_last_run_success_flag,
   maxium_delay: chef_client_max_delay_minutes,
-  timestamp_file: path_to_last_run_time
+  timestamp_file: path_to_last_run_time,
 }
 
 if node[tcb]['add_header_fragment']

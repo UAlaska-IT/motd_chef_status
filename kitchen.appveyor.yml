@@ -6,41 +6,26 @@ provisioner:
   name: chef_zero
   always_update_cookbooks: true
   product_name: chef
-  product_version: 15.1.36
-  install_strategy: always
+  product_version: 17.1.35
+  install_strategy: once
 
 verifier:
   name: inspec
 
 platforms:
+  - name: ubuntu-20.04
   - name: ubuntu-18.04
-  - name: ubuntu-16.04
-  - name: ubuntu-14.04
-  - name: debian-9
-  - name: debian-8
-  - name: centos-7
-  - name: centos-6
-  - name: oracle-7.6
-  - name: oracle-6.10
-  - name: fedora-29
-  - name: fedora-28
+  - name: debian-10
+  - name: rhel-8
+  - name: rhel-7
+  - name: centos-8
+  - name: oracle-8
+  - name: fedora-33
   - name: amazon2
-  - name: amazon2-2018
   - name: sles-15
   - name: windows-2019
-    driver:
-      image_id: ami-004a782f694e8dde2
-    transport:
-      name: winrm
   - name: windows-2016
-    transport:
-      name: winrm
   - name: windows-2012r2
-    transport:
-      name: winrm
-  - name: windows-2008r2sp1
-    transport:
-      name: winrm
 
 suites:
   - name: default
@@ -51,5 +36,5 @@ suites:
         - test/integration/default
     attributes:
     includes:
-      - ubuntu-18.04
-      - centos-7
+      - ubuntu-20.04
+      - centos-8

@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 provides :motd_fragment
+unified_mode true
 
-property :fragment_name, [String, nil], default: nil
+property :fragment_name, [String, nil]
 property :template_cookbook, String, required: true
 property :template_source, String, required: true
 property :template_variables, Hash, default: {}

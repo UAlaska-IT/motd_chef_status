@@ -1,5 +1,9 @@
 # Changelog for MOTD Chef Status Cookbook
 
+## 1.0.4
+
+* Fix deprecation warnings in Chef 17
+
 ## 1.0.3
 
 * Added Appveyor logic

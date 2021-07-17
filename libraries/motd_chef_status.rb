@@ -75,6 +75,5 @@ module MOTDChefStatus
   end
 end
 
-Chef::Provider.include(MOTDChefStatus::Helper)
-Chef::Recipe.include(MOTDChefStatus::Helper)
+Chef::DSL::Recipe.include(MOTDChefStatus::Helper)
 Chef::Resource.include(MOTDChefStatus::Helper)
