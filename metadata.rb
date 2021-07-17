@@ -5,11 +5,10 @@ maintainer 'OIT Systems Engineering'
 maintainer_email 'ua-oit-se@alaska.edu'
 license 'MIT'
 description 'Configures MOTD to display system and Chef information'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
 git_url = 'https://github.com/ualaska-it/motd_chef_status'
-source_url git_url if respond_to?(:source_url)
-issues_url "#{git_url}/issues" if respond_to?(:issues_url)
+source_url git_url
+issues_url "#{git_url}/issues"
 
 version '1.0.4'
 
@@ -24,6 +23,6 @@ supports 'suse'
 # supports 'opensuse'
 # supports 'windows', '>= 6.3' # Windows 2012R2, see https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions
 
-chef_version '>= 14.0' if respond_to?(:chef_version)
+chef_version '>= 14.0'
 
 depends 'chef_run_recorder'
