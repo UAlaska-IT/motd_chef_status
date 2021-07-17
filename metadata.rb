@@ -18,10 +18,11 @@ supports 'debian', '>= 8.0'
 supports 'redhat', '>= 6.0'
 supports 'centos', '>= 6.0'
 supports 'oracle', '>= 6.0'
-supports 'fedora'
+# supports 'fedora'
 supports 'amazon'
 supports 'suse'
 # supports 'opensuse'
+# supports 'windows', '>= 6.3' # Windows 2012R2, see https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions
 
 chef_version '>= 14.0' if respond_to?(:chef_version)
 
