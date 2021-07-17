@@ -2,7 +2,8 @@
 driver:
   name: ec2
   region: us-west-1
-  instance_type: t2.micro
+  instance_type: t3a.micro
+  skip_cost_warning: true
   tags:
     Name: MOTD Chef Status
     Service: Infrastructure
@@ -15,8 +16,8 @@ provisioner:
   name: chef_zero
   always_update_cookbooks: true
   product_name: chef
-  product_version: 15.1.36
-  install_strategy: always
+  product_version: 17.2.29
+  install_strategy: once
   attributes:
     motd_chef_status:
       server_owner: 'Fake Dept. (fake@fake.org)'
@@ -25,25 +26,32 @@ verifier:
   name: inspec
 
 platforms:
+  - name: ubuntu-20.04
   - name: ubuntu-18.04
-  - name: ubuntu-16.04
-  - name: ubuntu-14.04
-  - name: debian-9
-  - name: centos-7
-  - name: centos-6
-  - name: oracle-7.6
-  - name: oracle-6.10
-  - name: fedora-29
-  - name: fedora-28
+  - name: debian-10
+    driver:
+      image_search:
+        owner-id: 903794441882
+        name: '*debian-10-*'
+  - name: rhel-8
+  - name: rhel-7
+  - name: centos-8
+  - name: oracle-8
+  - name: fedora-33
   - name: amazon2
-  - name: amazon2-2018
   - name: sles-15
   - name: windows-2019
     driver:
-      image_id: ami-004a782f694e8dde2
+      instance_type: t3a.medium
+      retryable_tries: 120
   - name: windows-2016
+    driver:
+      instance_type: t3a.medium
+      retryable_tries: 120
   - name: windows-2012r2
-  - name: windows-2008r2sp1
+    driver:
+      instance_type: t3a.medium
+      retryable_tries: 120
 
 suites:
   - name: debian-based
@@ -54,10 +62,9 @@ suites:
         - test/integration/default
     attributes:
     includes:
+      - ubuntu-20.04
       - ubuntu-18.04
-      - ubuntu-16.04
-      - ubuntu-14.04
-      - debian-9
+      - debian-10
   - name: rhel-based
     run_list:
       - recipe[motd_chef_status::default]
@@ -66,12 +73,11 @@ suites:
         - test/integration/default
     attributes:
     includes:
-      - centos-7
-      - oracle-7.6
-      - oracle-6.10
-      - fedora-29
-      - fedora-28
-  - name: all-others
+      - rhel-8
+      - rhel-7
+      - centos-8
+      - oracle-8
+  - name: other-nix
     run_list:
       - recipe[motd_chef_status::default]
     verifier:
@@ -80,5 +86,4 @@ suites:
     attributes:
     includes:
       - amazon2
-      - amazon2-2018
       - sles-15
